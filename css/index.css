@@ -1,0 +1,159 @@
+body {
+  display: flex;
+  margin: 0;
+  border-width: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  flex-direction: column;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.topnav{
+
+  padding: 1rem;
+  background-color: #f4f4f412;
+  columns: #222;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 16pxs;
+  margin: 10px calc(((100% - 1140px) / 2) + 34px) 0 calc(((100% - 1140px) / 2) + 34px);
+  font-family: Roboto,sans-serif;
+  
+}
+
+.line {
+  border-right-width: 0;
+  border-left-width: 0;
+  border-bottom-width: 0;
+  width: 86px;
+  height: 3px;
+  transform-origin: right center;
+  margin: 10px auto 0 calc(((100% - 1140px) / 2) + 527px);
+  border-color: #d0131c  !important;
+  border-width: 2px;
+  box-sizing: border-box;
+  border-style: solid;
+  display: block;
+  font-size: 1rem;
+  line-height: 1.6;
+
+}
+
+
+.text{
+
+  padding: 1rem;
+  background-color: #f4f4f412;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.5rem;
+  margin:0px calc(((100% - 1140px) / 2) +222px) 0px;
+  font-family: 'Open Sans',sans-serif;
+
+
+  
+}
+
+
+.content{
+  flex-grow: 1;
+  display: flex;
+  margin-top: 0px;
+  margin-bottom: 54px;
+  width: 99% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box;
+  font-family: 'Open Sans',sans-serif;
+
+
+}
+
+
+#map {
+  width: 100%;
+}
+
+.plot-section {
+  z-index: 1000;
+  background-color: #293330;
+  color:white;
+  padding: 1rem;
+  width: 60%;
+}
+
+.plot-content {
+  display: flex;
+  width: 100%; 
+  height: 50%;
+
+
+
+}
+
+
+.cell_1 {
+  width: 50%;
+  right: 5px;
+  position: relative;
+  top: 4rem;
+  margin-right: 10px;
+  color:white;
+  text-align: center;
+}
+
+
+
+.cell_2 {
+  width: 50%;
+  right: 5px;
+  position: relative;
+  top: 4rem;
+  margin-right: 10px;
+  color:white;
+  text-align: center;
+}
+.cell_3 {
+  width: 50%;
+  right: 5px;
+  position: relative;
+  top: 0rem;
+  margin-right: 10px;
+  color:white;
+  text-align: center;
+}
+.cell_4 {
+  width: 50%;
+  right: 5px;
+  position: relative;
+  top: 0rem;
+  margin-right: 10px;
+  color:white;
+  text-align: center;}
+
+.info {
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+.info h4 {
+  margin: 0 0 5px;
+  color: #777;
+}
+
+
+.legend {
+  line-height: 18px;
+  color: #555;
+}
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}

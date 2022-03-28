@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Mobility Pattern in NYC</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="https://kit.fontawesome.com/a6ea89134d.js" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+
+  <h2 class="topnav">COVID-19's Impact on Human Mobility Pattern in NYC</h2>
+  <div class="line"></div>
+  <p class="text">This Map illustrate the people's visit to Recreation Places in NYC</p>
+  
+  <div class='content'>
+    <div class="map" id="map">
+
+    </div>
+
+    <div class="plot-section">
+      <label for="year-level-select">Select a Year</label>
+      <select id="year-level-select" class="form-select">
+        <option>2019</option>
+        <option>2020</option>
+        <option>2021</option>
+      </select>
+
+      <div class="plot-content">
+          <div class="cell_1"> 
+
+            <i class="fa-solid fa-person fa-bounce fa-2x" 
+              style=" --fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y:1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y:1; " >
+            </i>            
+            <h3>Total Population</h3>
+            <h5>8,336,817</h5>
+
+          </div> 
+
+          <div class="cell_2">
+            <i class="fa-solid fa-house-chimney fa-bounce fa-2x" 
+              style=" --fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y:1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y:1; " >
+            </i>
+            <h3>Total Area</h3>
+            <h5>778.2 km&sup2 </h5>          
+          </div>  
+
+      </div>
+      
+      <div class="plot-content">
+        <div class="cell_3">            
+          <i class="fa-solid fa-otter fa-bounce fa-2x"
+            style=" --fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y:1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y:1; " >
+        </i>
+        <h3>Visit Count</h3>
+        <h5 class='visit'>1,333,204 </h5>               
+      
+      </div>         
+        <div class="cell_4">
+          <i class="fa-solid fa-frog fa-bounce fa-2x"
+          style=" --fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y:1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y:1; " >
+          </i> 
+          <h3>Most Popular Place</h3>
+          <h5 class='dwell'>tract_id: 360050414500</h5>               
+        </div>
+    </div>
+
+
+    </div>
+
+  <!-- Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+  <script src="https://unpkg.com/showdown@1.9.0/dist/showdown.min.js"></script>
+  <script src="data/gdf_recreation_json.js"></script>
+  <script src="js/index.js"></script>
+
+
+
+  
+</body>
+</html>
