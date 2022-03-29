@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8" />
 
   <title>Mobility Pattern in NYC</title>
   <link rel="stylesheet" href="css/normalize.css">
@@ -12,8 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css">
   <script src="https://kit.fontawesome.com/a6ea89134d.js" crossorigin="anonymous"></script>
-
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 </head>
 <body>
 
@@ -22,9 +22,7 @@
   <p class="text">This Map illustrate the people's visit to Recreation Places in NYC</p>
   
   <div class='content'>
-    <div class="map" id="map">
-
-    </div>
+    <div class="map" id="map"></div>
 
     <div class="plot-section">
       <label for="year-level-select">Select a Year</label>
@@ -35,26 +33,9 @@
       </select>
 
       <div class="plot-content">
-          <div class="cell_1"> 
-
-            <i class="fa-solid fa-person fa-bounce fa-2x" 
-              style=" --fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y:1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y:1; " >
-            </i>            
-            <h3>Total Population</h3>
-            <h5>8,336,817</h5>
-
-          </div> 
-
-          <div class="cell_2">
-            <i class="fa-solid fa-house-chimney fa-bounce fa-2x" 
-              style=" --fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y:1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y:1; " >
-            </i>
-            <h3>Total Area</h3>
-            <h5>778.2 km&sup2 </h5>          
-          </div>  
-
+        <canvas id="myChartBar"></canvas>
       </div>
-      
+
       <div class="plot-content">
         <div class="cell_3">            
           <i class="fa-solid fa-otter fa-bounce fa-2x"
@@ -62,8 +43,8 @@
         </i>
         <h3>Visit Count</h3>
         <h5 class='visit'>1,333,204 </h5>               
-      
-      </div>         
+        </div>         
+
         <div class="cell_4">
           <i class="fa-solid fa-frog fa-bounce fa-2x"
           style=" --fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y:1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y:1; " >
@@ -71,9 +52,7 @@
           <h3>Most Popular Place</h3>
           <h5 class='dwell'>tract_id: 360050414500</h5>               
         </div>
-    </div>
-
-
+      </div>
     </div>
 
   <!-- Leaflet JavaScript -->
@@ -82,8 +61,5 @@
   <script src="data/gdf_recreation_json.js"></script>
   <script src="js/index.js"></script>
 
-
-
-  
 </body>
 </html>

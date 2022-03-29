@@ -55,7 +55,6 @@ body {
   
 }
 
-
 .content{
   flex-grow: 1;
   display: flex;
@@ -69,7 +68,6 @@ body {
 
 
 }
-
 
 #map {
   width: 100%;
@@ -88,37 +86,23 @@ body {
   width: 100%; 
   height: 50%;
 
-
-
 }
 
 
-.cell_1 {
-  width: 50%;
-  right: 5px;
-  position: relative;
-  top: 4rem;
-  margin-right: 10px;
+#myChartBars{
+  width: 100%;
+  height: 50%;
+  margin-top: 10px;
   color:white;
   text-align: center;
 }
 
 
-
-.cell_2 {
-  width: 50%;
-  right: 5px;
-  position: relative;
-  top: 4rem;
-  margin-right: 10px;
-  color:white;
-  text-align: center;
-}
 .cell_3 {
   width: 50%;
   right: 5px;
   position: relative;
-  top: 0rem;
+  top:2rem;
   margin-right: 10px;
   color:white;
   text-align: center;
@@ -127,7 +111,7 @@ body {
   width: 50%;
   right: 5px;
   position: relative;
-  top: 0rem;
+  top: 2rem;
   margin-right: 10px;
   color:white;
   text-align: center;}
