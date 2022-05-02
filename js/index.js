@@ -145,11 +145,11 @@ const myChartBar = new Chart(variable, {
       color: 'white',
       data: [353320, 464792, 7995805, 536273, 178255],
       backgroundColor: [
-        'rgba(255, 99, 132, 0.2)', 
-        'rgba(54, 162, 235, 0.2)', 
-        'rgba(255, 206, 86, 0.2)', 
-        'rgba(75, 192, 192, 0.2)', 
-        'rgba(153, 102, 255, 0.2)', 
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
         'rgba(255, 159, 64, 0.2)'
       ],
       borderColor: [
@@ -196,10 +196,38 @@ function plotUpdate() {
     myChartBar.data.datasets[0].data = [353320, 464792, 7995805, 536273, 178255];
   }
   else if (year === '2020') {
-    myChartBar.data.datasets[0].data = [453864, 463319, 2787947, 257180, 147434]; } 
+    myChartBar.data.datasets[0].data = [453864, 463319, 2787947, 257180, 147434]; }
   else {
     myChartBar.data.datasets[0].data = [333818, 401740, 4174982, 560424, 147521]; }
 
   myChartBar.update();
 
 }
+
+
+function setupTabs () {
+  document.querySelectorAll(".tabs__button").forEach(button => {
+    button.addEventListener("click", () => {
+      const sideBar = button.parentElement;
+      const tabsContainer = sideBar.parentElement;
+      const tabNumber = button.dataset.forTab;
+      const tabToActivate = tabsContainer.querySelector(`.tabs__content[data-tab="${tabNumber}"]`)
+
+      sideBar.querySelectorAll(".tabs__button").forEach(button => {
+        button.classList.remove("tabs__button--active");
+      });
+
+      tabsContainer.querySelectorAll(".tabs__content").forEach(tab => {
+        tab.classList.remove("tabs__content--active");
+      });
+
+      button.classList.add("tabs__button--active");
+      tabToActivate.classList.add("tabs__content--active");
+
+    })
+  })
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  setupTabs();
+});
