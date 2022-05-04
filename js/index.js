@@ -1,7 +1,17 @@
 /* global trans */
+var center = [40.730610, -73.935242];
+var zoom = 11;
 
-const map = L.map('map').setView([40.730610, -73.935242], 11);
-const layers = L.layerGroup().addTo(map);
+var map = L.map('mobilityMap', {
+  attributionControl: false,
+  inertia: false,
+  minZoom: 12
+}).setView(center, zoom)
+
+var equityMap = L.map('equityMap', {
+  inertia: false,
+  minZoom: 12
+}).setView(center, zoom)
 
 const mapboxAccessToken = 'pk.eyJ1IjoibmVidWxhYml1IiwiYSI6ImNsMHIycWhucTJnbXozaW41YzJheTIzNXYifQ.HZkgl4qBDFO6MHqLxF5q6A';
 
@@ -11,9 +21,33 @@ L.tileLayer(`https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   zoomOffset: -1,
 }).addTo(map);
 
+L.tileLayer(`https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${mapboxAccessToken}`, {
+  id: 'mapbox/light-v9',
+  tileSize: 512,
+  zoomOffset: -1,
+}).addTo(equityMap);
+
+var circle = L.circle([40.730610, -73.935242], 2000, {
+  color: 'red',
+  fillColor: 'red',
+  fillOpacity: 0.5
+}).addTo(map);
+
+var circle = L.circle([40.730610, -73.935242], 2000, {
+  color: 'blue',
+  fillColor: 'blue',
+  fillOpacity: 0.5
+}).addTo(equityMap);
+
+$('#map-container').beforeAfter(map, equityMap);
+
 const yearLevelSelect = document.querySelector('#year-level-select');
+const indLevelSelect = document.querySelector('#ind-level-select');
 let year = yearLevelSelect.value;
+let ind = indLevelSelect.value;
 year = '2019';
+ind = 'Education'
+
 // pop out infomation
 const info = L.control();
 
@@ -143,7 +177,7 @@ const myChartBar = new Chart(variable, {
     labels: ['Bronx', 'Brooklyn', 'Manhattan', 'Queens', 'Staten Dislands'],
     datasets: [{
       color: 'white',
-      data: [353320, 464792, 7995805, 536273, 178255],
+      data: [111111, 222222, 333333, 444444, 555555],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
@@ -189,16 +223,34 @@ const handleSelectChange = () => {
 };
 
 yearLevelSelect.addEventListener('change', handleSelectChange);
+indLevelSelect.addEventListener('change', handleSelectChange);
 
 function plotUpdate() {
   const year = String(yearLevelSelect.value);
-  if (year === '2019') {
-    myChartBar.data.datasets[0].data = [353320, 464792, 7995805, 536273, 178255];
+  const ind = String(indLevelSelect.value);
+  myChartBar.data.labels = ['Bronx', 'Brooklyn', 'Manhattan', 'Queens', 'Staten Dislands'];
+
+  if (year === '2019' && ind === 'Education') {
+    myChartBar.data.datasets[0].data = [111111, 222222, 333333, 444444, 555555];
+  }
+  else if (year === '2019' && ind === 'Transportation') {
+    myChartBar.data.datasets[0].data = [999999, 888888, 777777, 666666, 555555];
   }
   else if (year === '2020') {
-    myChartBar.data.datasets[0].data = [453864, 463319, 2787947, 257180, 147434]; }
-  else {
-    myChartBar.data.datasets[0].data = [333818, 401740, 4174982, 560424, 147521]; }
+    myChartBar.data.datasets[0].data = [453864, 463319, 2787947, 257180, 147434];
+  }
+  else if (year === '2021') {
+    myChartBar.data.datasets[0].data = [333818, 401740, 4174982, 560424, 147521];
+  }
+  else if (year === 'All') {
+    myChartBar.data.labels = ['Education', 'Transportation', 'Food', 'Wholesale & Retail', 'Health Care'];
+    myChartBar.data.datasets[0].data = [333333, 444444, 555555, 666666, 777777];
+  }
+  else if (ind === 'All') {
+    myChartBar.data.labels = ['2019', '2020', '2021'];
+    myChartBar.data.datasets[0].data = [666, 999, 333];
+  }
+
 
   myChartBar.update();
 

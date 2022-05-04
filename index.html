@@ -5,13 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8" />
 
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+  <link rel="stylesheet" href="css/index.css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery.beforeafter-map-0.11.js"></script>
+
   <title>Mobility Pattern in NYC</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/index.css">
   <script src="https://kit.fontawesome.com/a6ea89134d.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 </head>
@@ -22,15 +31,31 @@
   <p class="text">This Map illustrate the people's visit to Recreation Places in NYC</p>
 
   <div class='content'>
-    <div class="map" id="map"></div>
+    <div id="map-container">
+       <div id="mobilityMap" class="map"></div>
+       <div id="equityMap" class="map"></div>
+    </div>
 
     <div class="plot-section">
-      <label for="year-level-select">Select a Year</label>
-      <select id="year-level-select" class="form-select">
-        <option>2019</option>
-        <option>2020</option>
-        <option>2021</option>
-      </select>
+      <div class="drop-down-lists">
+        <label for="year-level-select">Select a Year</label>
+        <select id="year-level-select" class="form-select">
+          <option>2019</option>
+          <option>2020</option>
+          <option>2021</option>
+          <option>All</option>
+        </select>
+
+        <label for="ind-level-select">Select an Industry</label>
+        <select id="ind-level-select" class="form-select">
+          <option>Education</option>
+          <option>Transportation</option>
+          <option>Food</option>
+          <option>Wholesale and Retail</option>
+          <option>Health Care</option>
+          <option>All</option>
+        </select>
+      </div>
 
       <div class="plot-content">
         <canvas id="myChartBar"></canvas>
@@ -54,6 +79,7 @@
         </div>
       </div>
     </div>
+  </div>
 
   <!-- Leaflet JavaScript -->
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
